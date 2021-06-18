@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="container p-5">
+    <h1 class="mb-5 text-center text-primary">CreateView</h1>
+    <p class="lead text-center fw-bold mb-3">著者を登録する</p>
+    <div>
+      <form action="" method="post">
+        {{ form.as_p }}
+        <button class="btn btn-primary">登録する</button>
+          {% csrf_token %}
+      </form>
+    </div>
+</div>
+{% endblock %}

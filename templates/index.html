@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="container p-5">
+    <h1 class="mb-5 text-center text-primary">クラスベースビューの勉強</h1>
+    <p class="lead text-center fw-bold mb-3">Amazon的な本管理システム</p>
+    <p class="lead mb-3">使用DBモデル</p>
+    <ul class="mb-5">
+        <li>Book （本データ）</li>
+        <li>Author （著者データ）</li>
+    </ul>
+    <div class="row">
+        <div class="col"> 
+            <a href="{% url 'sample:book_create' %}" class="btn btn-primary w-100 py-4" style="font-size:32px;">本を登録する</a>
+        </div>
+        <div class="col"> 
+            <a href="{% url 'sample:book_list' %}" class="btn btn-primary w-100 py-4" style="font-size:32px;">本を一覧する</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

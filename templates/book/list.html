@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="container p-5">
+    <h1 class="mb-5 text-center text-primary">ListView</h1>
+    <p class="lead text-center fw-bold mb-3">本を一覧する</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>タイトル</th>
+                <th>日時</th>
+                <th>-</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>
+                    <form action="" id="form">
+                        <input type="hidden" name="date" value="{{ book.created|date:'Y-m-d' }}">
+                        <span onclick="document.getElementById('form').submit()">{{ book.created|date:'Y/m/d H:i' }}</span>
+                    </form>
+                </td>
+                <td><a class="btn btn-sm btn-primary" href="{% url 'sample:book_detail' book.uuid %}">詳細をみる</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

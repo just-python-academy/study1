@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="container p-5">
+    <h1 class="mb-5 text-center text-primary">DetailView</h1>
+    <p class="lead text-center fw-bold mb-3">本の詳細ページ</p>
+    <div class="p-3">
+        <h1>タイトル: {{ book.title }}</h1>
+        <p>概要: {{ book.description }}</p>
+        <p>著者:</p>
+        <ul>
+            {% for author in authors %}
+            <li>{{ author.name }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'sample:book_update' book.id %}" class="btn btn-warning text-white">編集する</a>
+        <a href="{% url 'sample:author_add' book.id %}" class="btn btn-info text-white">著者を追加する</a>
+    </div>
+
+</div>
+{% endblock %}
